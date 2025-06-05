@@ -1,0 +1,156 @@
+/* Mobile-Specific Styles for Cows and Corgis */
+
+/* Mobile Portrait */
+@media (max-width: 768px) {
+    #gameContainer {
+        padding: 5px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    #gameInfo {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    #currentPlayer {
+        font-size: 1rem;
+    }
+
+    #scores {
+        gap: 15px;
+        font-size: 1rem;
+    }
+
+    #gameCanvas {
+        width: 95vw;
+        height: 95vw;
+        max-width: 500px;
+        max-height: 500px;
+    }
+
+    .debug-controls {
+        gap: 8px;
+    }
+
+    .debug-controls button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        flex: 1;
+        min-width: 80px;
+    }
+
+    #debugOutput {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    #gameContainer {
+        padding: 3px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    #gameInfo {
+        padding: 8px 12px;
+    }
+
+    #currentPlayer {
+        font-size: 0.9rem;
+    }
+
+    #scores {
+        font-size: 0.9rem;
+        gap: 10px;
+    }
+
+    #gameCanvas {
+        width: 98vw;
+        height: 98vw;
+        max-width: 400px;
+        max-height: 400px;
+    }
+
+    .debug-controls button {
+        font-size: 0.7rem;
+        padding: 5px 8px;
+    }
+
+    #debugOutput {
+        font-size: 0.7rem;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    #gameContainer {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    header {
+        width: 250px;
+        margin-bottom: 0;
+        margin-right: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    #gameArea {
+        flex: 1;
+        justify-content: center;
+    }
+
+    #gameCanvas {
+        width: auto;
+        height: 80vh;
+        max-width: 80vh;
+        max-height: 80vh;
+    }
+
+    #debugPanel {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+/* Touch-Specific Adjustments */
+@media (pointer: coarse) {
+    /* Larger touch targets */
+    .debug-controls button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    #gameCanvas {
+        /* Ensure canvas is large enough for touch interaction */
+        min-width: 300px;
+        min-height: 300px;
+    }
+}
+
+/* High DPI Displays */
+@media (-webit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #gameCanvas {
+        /* Canvas scaling will be handled in JavaScript */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Prevent Zoom on Double Tap*/
+@media (max-width: 768px) {
+    * {
+        touch-action: manipulation;
+    }
+}
